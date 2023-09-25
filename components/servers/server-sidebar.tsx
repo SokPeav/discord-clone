@@ -20,7 +20,7 @@ export const ServerSideBar = async ({ serverId }: ServerSideBarProps) => {
       id: serverId,
     },
     include: {
-      channel: {
+      channels: {
         orderBy: {
           createdAt: "asc",
         },
@@ -36,13 +36,13 @@ export const ServerSideBar = async ({ serverId }: ServerSideBarProps) => {
     },
   });
 
-  const textChannels = server?.channel.filter(
+  const textChannels = server?.channels.filter(
     (channel) => channel.type === ChannelType.TEXT
   );
-  const audioChannels = server?.channel.filter(
+  const audioChannels = server?.channels.filter(
     (channel) => channel.type === ChannelType.AUDIO
   );
-  const videoChannels = server?.channel.filter(
+  const videoChannels = server?.channels.filter(
     (channel) => channel.type === ChannelType.VIDEO
   );
 
