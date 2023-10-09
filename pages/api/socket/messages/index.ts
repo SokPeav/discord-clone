@@ -1,4 +1,4 @@
-import { currentProfilePage } from "@/lib/current-profile-pages";
+import { currentProfilePages } from "@/lib/current-profile-pages";
 import { db } from "@/lib/db";
 import { NextApiResponseServerIo } from "@/types";
 import { NextApiRequest } from "next";
@@ -12,7 +12,7 @@ export default async function handler(
   }
 
   try {
-    const profile = await currentProfilePage(req);
+    const profile = await currentProfilePages(req);
 
     const { content, fileUrl } = req.body;
     const { serverId, channelId } = req.query;
@@ -82,7 +82,9 @@ export default async function handler(
         },
       },
     });
+    const channelKey = `chat:${channelId}:messages`;
 
+    res?.socket?.server?.io?.emit(channelKey, message);
     return res.status(200).json(message);
   } catch (error) {
     console.log("[MESSAGE_POST]", error);
