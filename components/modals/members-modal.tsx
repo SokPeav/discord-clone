@@ -52,7 +52,7 @@ export const MembersModal = () => {
   const [loadingId, setLoadingId] = useState("");
   const isModalOpen = isOpen && type === "members";
 
-  const { server } = data as { server: ServerWithMembersWithProfile };
+  const { server } = data as { server: ServerWithMembersWithProfile }; // the reason create this type cause if we only server type profile, it only contain server object with no relation with Member and profile
 
   const onKick = async (memberId: string) => {
     try {
