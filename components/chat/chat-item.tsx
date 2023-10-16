@@ -84,17 +84,17 @@ function ChatItem({
     form.reset({
       content: content,
     });
-  }, [content,form]);
+  }, [content, form]);
 
   const isLoading = form.formState.isLoading;
+
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    console.log(values);
+    console.log("123")
     try {
       const url = qs.stringifyUrl({
         url: `${socketUrl}/${id}`,
         query: socketQuery,
       });
-
       await axios.patch(url, values);
       form.reset();
       setIsEditing(false);

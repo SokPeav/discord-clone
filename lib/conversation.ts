@@ -11,7 +11,8 @@ export const getOrCreateConversation = async (
   if (!conversation) {
     conversation = await createNewConversation(memberOneId, memberTwoId);
   }
-  return conversation; 
+
+  return conversation;
 };
 
 const findConversation = async (memberOneId: string, memberTwoId: string) => {
@@ -33,8 +34,7 @@ const findConversation = async (memberOneId: string, memberTwoId: string) => {
         },
       },
     });
-  } catch (error) {
-    console.log(error);
+  } catch {
     return null;
   }
 };
@@ -62,8 +62,7 @@ const createNewConversation = async (
         },
       },
     });
-  } catch (error) {
-    console.log(error);
+  } catch {
     return null;
   }
 };

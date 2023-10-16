@@ -7,7 +7,6 @@ export async function PATCH(
   { params }: { params: { memberId: string } }
 ) {
   try {
-    console.log(req);
     const profile = await currentProfile();
     const { searchParams } = new URL(req.url);
     const { role } = await req.json();
