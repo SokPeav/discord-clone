@@ -40,6 +40,7 @@ import {
 import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { ActionTooltip } from "../action-tooltip";
 
 const roleIconMap = {
   GUEST: null,
@@ -112,10 +113,12 @@ export const MembersModal = () => {
             <div key={member.id} className="flex items-center gap-x-2 mb-6">
               <UserAvatar src={member.profile.imageUrl} />
               <div className="flex flex-col gap-y-1">
-                <div className="flex items-center  text-xs font-semibold gap-x-1   ">
-                  {member.profile.name}
-                  {roleIconMap[member.role]}
-                </div>
+                <ActionTooltip label={member.role}>
+                  <div className="flex items-center  text-xs font-semibold gap-x-1   ">
+                    {member.profile.name}
+                    {roleIconMap[member.role]}
+                  </div>
+                </ActionTooltip>
 
                 <p className="text-xs text-zinc-500">{member.profile.email}</p>
               </div>

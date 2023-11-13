@@ -2,19 +2,18 @@
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
-  DialogTitle,
+  DialogTitle
 } from "@/components/ui/dialog";
 
-import { useModal } from "@/hooks/use-modal-store";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Check, Copy, RefreshCw } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useModal } from "@/hooks/use-modal-store";
 import { useOrigin } from "@/hooks/use-origin";
-import { useState } from "react";
 import axios from "axios";
+import { Check, Copy, RefreshCw } from "lucide-react";
+import { useState } from "react";
 
 export const InviteModal = () => {
   const { isOpen, type, onClose, data, onOpen } = useModal();

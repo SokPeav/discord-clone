@@ -17,7 +17,7 @@ import {
   Settings,
   Trash,
   UserPlus,
-  Users
+  Users,
 } from "lucide-react";
 
 interface ServerHeaderProps {
@@ -32,7 +32,7 @@ export const ServerHeader = ({ server, role }: ServerHeaderProps) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="focus:outline-none " asChild>
-        <button className="w-full text-md font-semibold px-3 flex items-center h-12 border-neutral-200 dark:border-neutral-800 border-b-2 hover:bg-zinc-700/10 dark:hover:bg-zinc-700/50 transition">
+        <button className="w-full h-12 text-md font-semibold px-3 flex items-center  border-neutral-200 dark:border-neutral-800 border-b-2 hover:bg-zinc-700/10 dark:hover:bg-zinc-700/50 transition">
           {server.name}
           <ChevronDown className="h-5 w-5 ml-auto" />
         </button>
